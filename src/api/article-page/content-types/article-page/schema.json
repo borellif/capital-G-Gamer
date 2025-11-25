@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "article_pages",
+  "info": {
+    "singularName": "article-page",
+    "pluralName": "article-pages",
+    "displayName": "Article Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "publishDate": {
+      "type": "date"
+    },
+    "updateDate": {
+      "type": "date"
+    },
+    "colorTheme": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "Content": {
+      "type": "blocks"
+    },
+    "relatedArticles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article-page.article-page"
+    }
+  }
+}
